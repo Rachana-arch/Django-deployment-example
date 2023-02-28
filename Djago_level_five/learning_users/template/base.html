@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li><a href="{% url 'index' %}">Brand</a> </li>
+    <li><a href="{% url 'admin:index'%}">Admin</a> </li>
+    <li><a href="{%url 'first_app:registration' %}">Registration</a> </li>
+</ul>
+
+{% if user.is_autheticated %}
+ <li><a href="{% url 'logout' %}">Logout</a></li>
+{% else %}
+  <li><a href="{% url 'first_app:user_login' %}">Login</a></li>
+{% endif %}
+</body>
+{% block body_block %}
+<h1>This is from base.html </h1>
+{% endblock %}
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body_block %}
+    {% if registered %}
+      <h1> You are registered </h1>
+    {% else %}
+      <form enctype="multipart/form-data" method="post">
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+          {% csrf_token %}
+          <input type="submit" value="Registration">
+      </form>
+    {% endif %}
+{% endblock %}
+
